@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="PropertySheets">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <DriverType>WDM</DriverType>
+    <TARGETNAME>haxlib</TARGETNAME>
+    <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
+    <Platform Condition="'$(Platform)' == ''">x64</Platform>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{BC80D1E0-5738-4048-A742-8A20949A6587}</ProjectGuid>
+    <RootNamespace>$(MSBuildProjectName)</RootNamespace>
+    <WindowsTargetPlatformVersion>$(LatestTargetPlatformVersion)</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetVersion>Windows7</TargetVersion>
+    <UseDebugLibraries>True</UseDebugLibraries>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <TargetVersion>Windows7</TargetVersion>
+    <UseDebugLibraries>False</UseDebugLibraries>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <TargetVersion>Windows7</TargetVersion>
+    <UseDebugLibraries>True</UseDebugLibraries>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <TargetVersion>Windows7</TargetVersion>
+    <UseDebugLibraries>False</UseDebugLibraries>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+  </PropertyGroup>
+  <!-- Needed by any VcxProj -->
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="packages\nasm2.2.13.3.1\build\native\nasm.props" Condition="Exists('packages\nasm2.2.13.3.1\build\native\nasm.props')" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Label="Configuration">
+    <OutDir>$(SolutionDir)build\core\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)build\intermediates\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <!-- The WrappedTaskItems label is used by the conversion tool to identify the location where items 
+        associated with wrapped tasks will reside.-->
+  <ItemGroup>
+    <NASM Include="..\..\core\emulate_ops.asm" />
+    <NASM Include="..\..\core\ia32_ops.asm" />
+    <NASM Include="..\..\core\vmx_ops.asm" />
+  </ItemGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <SDLCheck>true</SDLCheck>
+      <SupportJustMyCode>false</SupportJustMyCode>
+      <WarningLevel>Level1</WarningLevel>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\include;$(SolutionDir)..\..\core\include;$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <NASM>
+      <AdditionalOptions>--prefix _ %(AdditionalOptions)</AdditionalOptions>
+    </NASM>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <SDLCheck>true</SDLCheck>
+      <WarningLevel>Level1</WarningLevel>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\include;$(SolutionDir)..\..\core\include;$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <NASM>
+      <AdditionalOptions>--prefix _ %(AdditionalOptions)</AdditionalOptions>
+    </NASM>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <SDLCheck>true</SDLCheck>
+      <SupportJustMyCode>false</SupportJustMyCode>
+      <WarningLevel>Level1</WarningLevel>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\include;$(SolutionDir)..\..\core\include;$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <SDLCheck>true</SDLCheck>
+      <WarningLevel>Level1</WarningLevel>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\include;$(SolutionDir)..\..\core\include;$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\core\chunk.c" />
+    <ClCompile Include="..\..\core\cpu.c" />
+    <ClCompile Include="..\..\core\cpuid.c" />
+    <ClCompile Include="..\..\core\dump.c" />
+    <ClCompile Include="..\..\core\emulate.c" />
+    <ClCompile Include="..\..\core\ept.c" />
+    <ClCompile Include="..\..\core\ept2.c" />
+    <ClCompile Include="..\..\core\ept_tree.c" />
+    <ClCompile Include="..\..\core\gpa_space.c" />
+    <ClCompile Include="..\..\core\hax.c" />
+    <ClCompile Include="..\..\core\ia32.c" />
+    <ClCompile Include="..\..\core\intr_exc.c" />
+    <ClCompile Include="..\..\core\memory.c" />
+    <ClCompile Include="..\..\core\memslot.c" />
+    <ClCompile Include="..\..\core\mmio.c" />
+    <ClCompile Include="..\..\core\name.c" />
+    <ClCompile Include="..\..\core\page_walker.c" />
+    <ClCompile Include="..\..\core\ramblock.c" />
+    <ClCompile Include="..\..\core\vcpu.c" />
+    <ClCompile Include="..\..\core\vm.c" />
+    <ClCompile Include="..\..\core\vmx.c" />
+    <!-- We only add items (e.g. form ClSourceFiles) that do not already exist (e.g in the ClCompile list), this avoids duplication -->
+    <ClCompile Include="@(ClSourceFiles)" Exclude="@(ClCompile)" />
+    <ResourceCompile Include="@(RcSourceFiles)" Exclude="@(ResourceCompile)" />
+    <Midl Include="@(IdlSourceFiles)" Exclude="@(Midl)" />
+    <MessageCompile Include="@(McSourceFiles)" Exclude="@(MessageCompile)" />
+    <GenerateBmf Include="@(MofSourceFiles)" Exclude="@(GenerateBmf)" />
+  </ItemGroup>
+  <!-- Set default environment variables, e.g. for stampinf -->
+  <ItemGroup>
+    <BuildMacro Include="SDK_INC_PATH">
+      <Value>$(KIT_SHARED_INC_PATH)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+  </ItemGroup>
+  <ItemGroup>
+    <Inf Exclude="@(Inf)" Include="$(DDK_INF_FILES)" />
+    <Inf Exclude="@(Inf)" Include="*.inf" />
+    <FilesToPackage Include="$(TargetPath)" Condition="'$(ConfigurationType)'=='Driver' or '$(ConfigurationType)'=='DynamicLibrary'" />
+    <FilesToPackage Include="$(DDK_PACKAGE_FILES)" />
+  </ItemGroup>
+  <!-- Necessary to pick up proper files from local directory when in the IDE-->
+  <ItemGroup>
+    <None Exclude="@(None)" Include="*.txt;*.htm;*.html" />
+    <None Exclude="@(None)" Include="*.ico;*.cur;*.bmp;*.dlg;*.rct;*.gif;*.jpg;*.jpeg;*.wav;*.jpe;*.tiff;*.tif;*.png;*.rc2" />
+    <None Exclude="@(None)" Include="*.def;*.bat;*.hpj;*.asmx" />
+    <None Include="packages.haxm-core.config" />
+  </ItemGroup>
+  <!-- /Necessary to pick up proper files from local directory when in the IDE-->
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="packages\nasm2.2.13.3.1\build\native\nasm.targets" Condition="Exists('packages\nasm2.2.13.3.1\build\native\nasm.targets')" />
+  </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\nasm2.2.13.3.1\build\native\nasm.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\nasm2.2.13.3.1\build\native\nasm.props'))" />
+    <Error Condition="!Exists('packages\nasm2.2.13.3.1\build\native\nasm.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\nasm2.2.13.3.1\build\native\nasm.targets'))" />
+  </Target>
+</Project>

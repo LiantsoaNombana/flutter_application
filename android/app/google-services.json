@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "154740449776",
+    "project_id": "gpspulse-3bd12",
+    "storage_bucket": "gpspulse-3bd12.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:154740449776:android:0867eb22d57c6abf03bd35",
+        "android_client_info": {
+          "package_name": "application.android"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACWzxBlIJ0xIA8qIHc3yv8q5k1TU7lkpA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
