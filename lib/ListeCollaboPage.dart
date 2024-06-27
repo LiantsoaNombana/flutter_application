@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/carte_page.dart';
+import 'package:flutter_application_1/map_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'detail_page.dart';
 import 'header.dart'; 
@@ -143,15 +143,6 @@ class _ListeCollaboPageState extends State<ListeCollaboPage> {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const CarTempPage()));
               }
             ),
-            ListTile(
-              title:const Text("Carte" , style: TextStyle(color: Color.fromARGB(255, 85, 85, 85), fontSize: 12.0)),
-              leading: const Icon(Icons.map),
-              iconColor: Colors.grey,
-              onTap:(){
-                Navigator.pop(context);
-                Navigator.push(context , MaterialPageRoute(builder: (context) => const CartePage(latitude: 47.5338, longitude: -18.9181)));
-              }
-            ),
             const Divider(
               color: Color.fromARGB(255, 206, 204, 204), 
               thickness: 1, 
@@ -163,6 +154,19 @@ class _ListeCollaboPageState extends State<ListeCollaboPage> {
               onTap: () {
                 Navigator.pop(context);
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const DetailsPage()));
+              },
+            ),
+            const Divider(
+              color: Color.fromARGB(255, 206, 204, 204),
+              thickness: 1,
+            ),
+            ListTile(
+              title: const Text('Map', style: TextStyle(color: Color.fromARGB(255, 85, 85, 85), fontSize: 12.0)),
+              leading: const Icon(Icons.map),
+              iconColor: Colors.grey,
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const MapPage()));
               },
             ),
           ],

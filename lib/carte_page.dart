@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:latlong2/latlong.dart';
 import 'detail_page.dart';
 import 'header.dart';
 import 'insertCollabo_page.dart';
@@ -8,6 +7,8 @@ import 'ListeCollaboPage.dart';
 import 'my_home_page.dart';
 import 'profil_page.dart';
 import 'car_temp.dart';
+import 'package:latlong2/latlong.dart'; // Assurez-vous que c'est correct si utilisé
+
 
 class CartePage extends StatefulWidget {
   final double? latitude;
@@ -164,27 +165,22 @@ class _CartePageState extends State<CartePage> {
   }
 
  Widget content() {
-    return Stack(
-      children: [
-        FlutterMap(
-          options: MapOptions(
-            initialCenter: tappedPoint,
-            initialZoom: 13,
-            onTap: (tapPosition, latLng ,) => _handleTap(latLng , ''),
-            
-          ),
-          mapController: mapController,
-          children: [
-            TileLayer(
-              urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-            ),
-            MarkerLayer(markers: markers),
-          ],
-        ),
+  return FlutterMap(
+    options: MapOptions(
+      initialCenter: const LatLng(47.5155, -18.9042),
+      initialZoom: 15.0,
+      onTap: (tapPosition, latLng) => _handleTap(latLng, ''),
+    ),
+    mapController: mapController,
+    children: [
+      TileLayer(
+        urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+      ),
+      MarkerLayer(markers: markers),
+    ],
+  );
+}
 
-      ],
-    );
-  }
   void _handleTap(LatLng tappedLocation , String pointName) { 
     setState(() {
       tappedPoint = tappedLocation;
