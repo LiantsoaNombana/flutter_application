@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_application_1/my_home_page.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -10,6 +11,7 @@ import 'header.dart';
 import 'car_temp.dart';
 import 'package:http/http.dart' as http; 
 import 'dart:convert';
+import 'package:flutter_application_1/map_page.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key ?? const Key('default_key'));
@@ -176,6 +178,19 @@ class _ProfilePageState extends State<ProfilePage> {
               onTap: () {
                 Navigator.pop(context);
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const DetailsPage()));
+              },
+            ),
+            const Divider(
+              color: Color.fromARGB(255, 206, 204, 204),
+              thickness: 1,
+            ),
+            ListTile(
+              title: const Text('Map', style: TextStyle(color: Color.fromARGB(255, 85, 85, 85), fontSize: 12.0)),
+              leading: const Icon(Icons.map),
+              iconColor: Colors.grey,
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const MapPage()));
               },
             ),
           ],
