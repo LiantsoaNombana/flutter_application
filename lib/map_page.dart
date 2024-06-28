@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:location/location.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_application_1/my_home_page.dart';
+import 'my_home_page.dart';
 import 'Detail_page.dart';
 import 'insertCollabo_page.dart';
 import 'ListeCollaboPage.dart';
@@ -22,8 +21,7 @@ class MapPage extends StatefulWidget {
 class _MapPageState extends State<MapPage> {
   Location _locationController = Location();
   final MapController _mapController = MapController();
-  static const LatLng _pPulseLocation =
-      LatLng(-18.848466873168945, 47.480770111083984);
+  static const LatLng _pPulseLocation = LatLng(-18.848466873168945, 47.480770111083984);
   static const LatLng _pHomeLocation = LatLng(-18.847962, 47.553804);
   static const LatLng _pOneLocation = LatLng(-18.8334830, 47.5638413);
   static const LatLng _pTwoLocation = LatLng(-18.8361547, 47.5558164);
@@ -161,7 +159,7 @@ class _MapPageState extends State<MapPage> {
               child: CircularProgressIndicator(),
             )
           : FlutterMap(
-              options:const  MapOptions(
+              options: const MapOptions(
                 initialCenter: _pPulseLocation,
                 initialZoom: 15.0,
               ),
@@ -169,7 +167,7 @@ class _MapPageState extends State<MapPage> {
               children: [
                 TileLayer(
                   urlTemplate: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-                  subdomains: ['a', 'b', 'c'],
+                  subdomains: const ['a', 'b', 'c'],
                 ),
                 MarkerLayer(
                   markers: [
@@ -177,8 +175,7 @@ class _MapPageState extends State<MapPage> {
                       width: 80.0,
                       height: 80.0,
                       point: _currentP!,
-                      // Utilisation de 'child' pour définir l'icône du marqueur
-                      child:const  Icon(
+                      child: const Icon(
                         Icons.location_on,
                         color: Colors.blue,
                         size: 40.0,
@@ -204,7 +201,7 @@ class _MapPageState extends State<MapPage> {
                         size: 40.0,
                       ),
                     ),
-                   const Marker(
+                    const Marker(
                       width: 80.0,
                       height: 80.0,
                       point: _pOneLocation,
@@ -294,9 +291,12 @@ class _MapPageState extends State<MapPage> {
     );
   }
 
-  Future<void> _cameraPosition(LatLng pos) async {
-    _mapController.move(pos, 15.0);
-  }
+Future<void> _cameraPosition(LatLng pos) async {
+  double zoomLevel = 15.0; 
+  _mapController.move(pos, zoomLevel);
+}
+
+
 
   Future<void> getLocationUpdates() async {
     bool _serviceEnabled;

@@ -175,6 +175,7 @@ class _CartePageState extends State<CartePage> {
     children: [
       TileLayer(
         urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+        subdomains: const ['a', 'b', 'c'],
       ),
       MarkerLayer(markers: markers),
     ],
