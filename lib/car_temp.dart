@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Autehtification.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'detail_page.dart';
@@ -267,7 +268,19 @@ class _CarTempPageState extends State<CarTempPage> {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const CarTempPage()));
               },
             ),
-      
+            const Divider(
+              color: Color.fromARGB(255, 206, 204, 204),
+              thickness: 1,
+            ),
+            ListTile(
+              title: const Text('Map', style: TextStyle(color: Color.fromARGB(255, 85, 85, 85), fontSize: 12.0)),
+              leading: const Icon(Icons.map),
+              iconColor: Colors.red,
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const MapPage()));
+              },
+            ),
             const Divider(
               color: Color.fromARGB(255, 206, 204, 204),
               thickness: 1,
@@ -290,22 +303,10 @@ class _CarTempPageState extends State<CarTempPage> {
                 await prefs.remove('collaboratorId');
                 if (!mounted) return;
                 Navigator.pop(context);
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const MyHomePage(title: "", collaborateurId: "")));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const AuthenticationPage()));
               },
             ),
-            const Divider(
-              color: Color.fromARGB(255, 206, 204, 204),
-              thickness: 1,
-            ),
-            ListTile(
-              title: const Text('Map', style: TextStyle(color: Color.fromARGB(255, 85, 85, 85), fontSize: 12.0)),
-              leading: const Icon(Icons.map),
-              iconColor: Colors.red,
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const MapPage()));
-              },
-            ),
+            
           ],
         ),
       ),
@@ -431,6 +432,15 @@ class _CarTempPageState extends State<CarTempPage> {
             ],
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const DetailsPage()),
+          );
+        },
+        child: const Icon(Icons.navigate_next),
       ),
     );
   }

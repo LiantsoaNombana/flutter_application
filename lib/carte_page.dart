@@ -7,7 +7,10 @@ import 'ListeCollaboPage.dart';
 import 'my_home_page.dart';
 import 'profil_page.dart';
 import 'car_temp.dart';
-import 'package:latlong2/latlong.dart'; // Assurez-vous que c'est correct si utilisé
+import 'package:latlong2/latlong.dart'; 
+import 'package:flutter_application_1/Autehtification.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_application_1/map_page.dart';
 
 
 class CartePage extends StatefulWidget {
@@ -146,19 +149,45 @@ class _CartePageState extends State<CartePage> {
                 Navigator.push(context , MaterialPageRoute(builder: (context) => const CartePage(latitude: 47.5338, longitude: -18.9181)));
               }
             ),
-            const Divider( 
-                        color:Color.fromARGB(255, 206, 204, 204), 
-                        thickness: 1, 
+            const Divider(
+              color: Color.fromARGB(255, 206, 204, 204),
+              thickness: 1,
+            ),
+            ListTile(
+              title: const Text('Map', style: TextStyle(color: Color.fromARGB(255, 85, 85, 85), fontSize: 12.0)),
+              leading: const Icon(Icons.map),
+              iconColor: Colors.red,
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const MapPage()));
+              },
+            ),
+            const Divider(
+              color: Color.fromARGB(255, 206, 204, 204),
+              thickness: 1,
             ),
             ListTile(
               title: const Text('Paramètre', style: TextStyle(color: Color.fromARGB(255, 85, 85, 85), fontSize: 12.0)),
               leading: const Icon(Icons.settings),
               iconColor: Colors.red,
-              onTap: (){
+              onTap: () {
                 Navigator.pop(context);
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const DetailsPage()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfilePage()));
               },
             ),
+            ListTile(
+              title: const Text('Deconnexion', style: TextStyle(color: Color.fromARGB(255, 85, 85, 85), fontSize: 12.0)),
+              leading: const Icon(Icons.logout),
+              iconColor: Colors.red,
+              onTap: () async {
+                SharedPreferences prefs = await SharedPreferences.getInstance();
+                await prefs.remove('collaboratorId');
+                if (!mounted) return;
+                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const AuthenticationPage()));
+              },
+            ),
+            
           ],
         ),
       ),

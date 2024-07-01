@@ -7,6 +7,8 @@ import 'profil_page.dart';
 import 'my_home_page.dart';
 import 'insertCollabo_page.dart';
 import 'car_temp.dart';
+import 'package:flutter_application_1/Autehtification.dart';
+
 
 enum AxisSelection { xAxis, yAxis, none }
 
@@ -159,20 +161,7 @@ class _ListeCollaboPageState extends State<ListeCollaboPage> {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const CarTempPage()));
               }
             ),
-            const Divider(
-              color: Color.fromARGB(255, 206, 204, 204), 
-              thickness: 1, 
-            ),
-            ListTile(
-              title: const Text('Paramètre', style: TextStyle(color: Color.fromARGB(255, 85, 85, 85), fontSize: 12.0)), 
-              leading: const Icon(Icons.settings),
-              iconColor: Colors.red,
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const DetailsPage()));
-              },
-            ),
-            const Divider(
+           const Divider(
               color: Color.fromARGB(255, 206, 204, 204),
               thickness: 1,
             ),
@@ -183,6 +172,31 @@ class _ListeCollaboPageState extends State<ListeCollaboPage> {
               onTap: () {
                 Navigator.pop(context);
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const MapPage()));
+              },
+            ),
+            const Divider(
+              color: Color.fromARGB(255, 206, 204, 204),
+              thickness: 1,
+            ),
+            ListTile(
+              title: const Text('Paramètre', style: TextStyle(color: Color.fromARGB(255, 85, 85, 85), fontSize: 12.0)),
+              leading: const Icon(Icons.settings),
+              iconColor: Colors.red,
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfilePage()));
+              },
+            ),
+            ListTile(
+              title: const Text('Deconnexion', style: TextStyle(color: Color.fromARGB(255, 85, 85, 85), fontSize: 12.0)),
+              leading: const Icon(Icons.logout),
+              iconColor: Colors.red,
+              onTap: () async {
+                SharedPreferences prefs = await SharedPreferences.getInstance();
+                await prefs.remove('collaboratorId');
+                if (!mounted) return;
+                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const AuthenticationPage()));
               },
             ),
           ],
