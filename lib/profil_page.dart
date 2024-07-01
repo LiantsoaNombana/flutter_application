@@ -124,7 +124,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ListTile(
               title: const Text('Profil', style: TextStyle(color: Color.fromARGB(255, 85, 85, 85), fontSize: 12.0)),
               leading: const Icon(Icons.person),
-              iconColor: Colors.grey,
+              iconColor: Colors.red,
               onTap: () {
                 Navigator.pop(context);
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfilePage()));
@@ -133,7 +133,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ListTile(
               title: const Text('Inscription', style: TextStyle(color: Color.fromARGB(255, 85, 85, 85), fontSize: 12.0)),
               leading: const Icon(Icons.person_add),
-              iconColor: Colors.grey,
+              iconColor: Colors.red,
               onTap: () {
                 Navigator.pop(context);
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const MyHomePage(title: "flutter démo", collaborateurId: "id")));
@@ -146,7 +146,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ListTile(
               title: const Text('Chef de car ', style: TextStyle(color: Color.fromARGB(255, 85, 85, 85), fontSize: 12.0)),
               leading: const Icon(Icons.qr_code_scanner),
-              iconColor: Colors.grey,
+              iconColor: Colors.red,
               onTap: () {
                 Navigator.pop(context);
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const DetailsPage()));
@@ -155,7 +155,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ListTile(
               title: const Text('insertion d_un Collaborateur', style: TextStyle(color: Color.fromARGB(255, 85, 85, 85), fontSize: 12.0)),
               leading: const Icon(Icons.person_add),
-              iconColor: Colors.grey,
+              iconColor: Colors.red,
               onTap: () {
                 Navigator.pop(context);
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const InsertCollaboPage()));
@@ -164,7 +164,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ListTile(
               title: const Text('liste des collaborateurs', style: TextStyle(color: Color.fromARGB(255, 85, 85, 85), fontSize: 12.0)),
               leading: const Icon(Icons.list),
-              iconColor: Colors.grey,
+              iconColor: Colors.red,
               onTap: () {
                 Navigator.pop(context);
                 Navigator.push(context, MaterialPageRoute(builder: (context) => ListeCollaboPage()));
@@ -177,7 +177,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ListTile(
               title: const Text('Demande Car Temporaire', style: TextStyle(color: Color.fromARGB(255, 85, 85, 85), fontSize: 12.0)),
               leading: const Icon(Icons.mail),
-              iconColor: Colors.grey,
+              iconColor: Colors.red,
               onTap: () {
                 Navigator.pop(context);
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const CarTempPage()));
@@ -190,7 +190,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ListTile(
               title: const Text('Paramètre', style: TextStyle(color: Color.fromARGB(255, 85, 85, 85), fontSize: 12.0)),
               leading: const Icon(Icons.settings),
-              iconColor: Colors.grey,
+              iconColor: Colors.red,
               onTap: () {
                 Navigator.pop(context);
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const DetailsPage()));
@@ -203,7 +203,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ListTile(
               title: const Text('Map', style: TextStyle(color: Color.fromARGB(255, 85, 85, 85), fontSize: 12.0)),
               leading: const Icon(Icons.map),
-              iconColor: Colors.grey,
+              iconColor: Colors.red,
               onTap: () {
                 Navigator.pop(context);
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const MapPage()));
