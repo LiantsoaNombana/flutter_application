@@ -73,12 +73,14 @@ class _AuthenticationPageState extends State<AuthenticationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.red,
+      backgroundColor:const  Color.fromARGB(255, 243, 49, 35),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text('WELCOME', style: TextStyle(color: Color(0xFF311D64))),
+            const SizedBox(height: 20.0),
+            Image.asset('assets/pulse.png', height: 100, width: 100),
             const SizedBox(height: 50.0),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),

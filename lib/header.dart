@@ -20,7 +20,7 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.red,
+      backgroundColor: const Color.fromARGB(255, 243, 49, 35),
       iconTheme: const IconThemeData(color: Colors.white),
       title: Row(
         children: [

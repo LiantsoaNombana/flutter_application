@@ -70,11 +70,27 @@ class _ListeCollaboPageState extends State<ListeCollaboPage> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.red,
+            DrawerHeader(
+              decoration: const BoxDecoration(
+                color:   Color.fromARGB(255, 243, 49, 35),
               ),
-              child: Text('Geolocation-Pulse-Shuttle', style: TextStyle(color: Colors.white)),
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      'assets/pulse.png',
+                      height: 70,
+                      width: 70,
+                    ),
+                    const SizedBox(height: 10), // Espace entre le texte et l'image
+                    const Text(
+                      'Geolocation-Pulse-Shuttle',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ],
+                ),
+              ),
             ),
             const SizedBox(height: 30),
             const Divider(

@@ -177,12 +177,29 @@ class _CarTempPageState extends State<CarTempPage> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.red,
-              ),
-              child: Text('Geolocation-Pulse-Shuttle', style: TextStyle(color: Colors.white)),
+           DrawerHeader(
+            decoration: const BoxDecoration(
+              color:   Color.fromARGB(255, 243, 49, 35),
             ),
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    'assets/pulse.png',
+                    height: 70,
+                    width: 70,
+                  ),
+                  const SizedBox(height: 10), // Espace entre le texte et l'image
+                  const Text(
+                    'Geolocation-Pulse-Shuttle',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ],
+              ),
+            ),
+          ),
+
             const SizedBox(height: 30),
             const Divider(
               color: Color.fromARGB(255, 206, 204, 204),
