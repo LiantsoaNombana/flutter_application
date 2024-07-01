@@ -215,7 +215,7 @@ class _MyHomePageState extends State<MyHomePage> {
             const SizedBox(height: 20),
             const CircleAvatar(
               radius: 50,
-              backgroundImage: AssetImage('assets/pdp1.png'),
+              backgroundImage: AssetImage('assets/icone.png'),
             ),
             const SizedBox(height: 30.0),
             const Text('CREATION DU PROFIL', style: TextStyle(color: Color(0xFF311D64))),

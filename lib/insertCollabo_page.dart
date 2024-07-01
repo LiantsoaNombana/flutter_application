@@ -208,9 +208,17 @@ class _InsertCollaboPageState extends State<InsertCollaboPage> {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            const Text('INSERTION DE COLLABORATEUR'),
+            const SizedBox(height: 30),
+            Image.asset(
+                      'assets/liste.png',
+                      height: 100,
+                      width: 100,
+                    ),
+            const SizedBox(height: 20),
+            const Text('INSERTION DE COLLABORATEUR'  , style:  TextStyle(color: Colors.red),),
+            const SizedBox(height: 20),
             TextField(
               onChanged: (value) {
                 setState(() {
