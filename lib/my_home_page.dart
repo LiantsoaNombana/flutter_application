@@ -90,7 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image.asset(
-                      'assets/pulse.png',
+                      'assets/test.png',
                       height: 70,
                       width: 70,
                     ),

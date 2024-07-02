@@ -80,7 +80,7 @@ class _AuthenticationPageState extends State<AuthenticationPage> {
           children: [
             const Text('WELCOME', style: TextStyle(color: Colors.white , fontSize: 30)),
             const SizedBox(height: 20.0),
-            Image.asset('assets/pulse.png', height: 100, width: 100),
+            Image.asset('assets/test.png', height: 100, width: 100),
             const SizedBox(height: 50.0),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),

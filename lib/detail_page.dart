@@ -41,7 +41,7 @@ class _DetailsPageState extends State<DetailsPage>{
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image.asset(
-                      'assets/pulse.png',
+                      'assets/test.png',
                       height: 70,
                       width: 70,
                     ),

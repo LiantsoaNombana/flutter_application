@@ -81,7 +81,7 @@ class _ListeCollaboPageState extends State<ListeCollaboPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image.asset(
-                      'assets/pulse.png',
+                      'assets/test.png',
                       height: 70,
                       width: 70,
                     ),

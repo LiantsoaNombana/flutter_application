@@ -187,7 +187,7 @@ class _CarTempPageState extends State<CarTempPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
-                    'assets/pulse.png',
+                    'assets/test.png',
                     height: 70,
                     width: 70,
                   ),
