@@ -100,6 +100,15 @@ class _ListeCollaboPageState extends State<ListeCollaboPage> {
               thickness: 1, 
             ),
             ListTile(
+              title: const Text('Authentification', style: TextStyle(color: Color.fromARGB(255, 85, 85, 85), fontSize: 12.0)),
+              leading: const Icon(Icons.lock),
+              iconColor: Colors.red,
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const AuthenticationPage()));
+              },
+            ),
+            ListTile(
               title: const Text('Profil', style: TextStyle(color: Color.fromARGB(255, 85, 85, 85), fontSize: 12.0)),
               leading: const Icon(Icons.person),
               iconColor: Colors.red,

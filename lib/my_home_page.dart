@@ -110,7 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ListTile(
               title: const Text('Authentification', style: TextStyle(color: Color.fromARGB(255, 85, 85, 85), fontSize: 12.0)),
-              leading: const Icon(Icons.person),
+              leading: const Icon(Icons.lock),
               iconColor: Colors.red,
               onTap: () {
                 Navigator.pop(context);
@@ -228,9 +228,10 @@ class _MyHomePageState extends State<MyHomePage> {
             const CircleAvatar(
               radius: 50,
               backgroundImage: AssetImage('assets/icone.png'),
+              backgroundColor: Colors.white,
             ),
             const SizedBox(height: 30.0),
-            const Text('CREATION DU PROFIL', style: TextStyle(color: Color(0xFF311D64))),
+            const Text('CREATION DU PROFIL', style: TextStyle(color: Color.fromARGB(255, 243, 49, 35))),
             const SizedBox(height: 20.0),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -415,7 +416,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     }
                   : null,
               style: ElevatedButton.styleFrom(
-                backgroundColor: isVerified ? const Color(0xFF311D64) : Colors.grey,
+                backgroundColor: isVerified ? const Color.fromARGB(255, 67, 146, 248) : Colors.grey,
               ),
               child: const Text('QR Code', style: TextStyle(color: Colors.white)),
             ),
